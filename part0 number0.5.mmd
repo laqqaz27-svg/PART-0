@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Enter URL /exampleapp/spa
+    Browser->>Server: HTTP GET /spa
+    Server-->>Browser: HTML document (spa page)
+
+    Browser->>Server: HTTP GET /main.css
+    Server-->>Browser: CSS file
+
+    Browser->>Server: HTTP GET /spa.js
+    Server-->>Browser: JavaScript file
+
+    Note right of Browser: Browser executes spa.js
+
+    Browser->>Server: HTTP GET /data.json
+    Server-->>Browser: JSON list of notes
+
+    Note right of Browser: JavaScript renders notes dynamically
+    Note right of Browser: Page updates without reload
