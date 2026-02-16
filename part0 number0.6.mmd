@@ -1,0 +1,20 @@
+flowchart TD
+
+A[User types note into text field] --> B[User clicks Save button]
+
+B --> C[Browser prevents default form submission]
+C --> D[JavaScript event handler runs]
+
+D --> E[Create note object: content, date]
+E --> F[Add note to local notes array]
+
+F --> G[Re-render notes list in DOM - no page reload]
+
+E --> H[Send POST request to server /notes with JSON data]
+
+H --> I[Server receives POST request]
+I --> J[Server stores note]
+J --> K[Server responds with JSON confirmation]
+
+K --> L[Browser receives response]
+L --> M[Console logs response; optional]
